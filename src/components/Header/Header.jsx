@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import Logo from '../src/assets/ChessStudio_logo.png'
+import Logo from "../../assets/ChessStudio_logo.png"
 const Header = ({onToggleSidebar}) => {
     return (
         <div className='Header'>
