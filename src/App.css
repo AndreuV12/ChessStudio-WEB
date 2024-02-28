@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* \Variables globales */
+:root {
+  --color-primary: rgba(10, 0, 110, 0.85);
+  --color-secondary: white;
+  --font-size-base: 16px;
+}
+
+
+.textButton{
+  border: 2px solid black;
+  background-color: rgb(195, 193, 193);
+  color: black;
+  font-weight:800;
+}
+
+.App {
+  background-color: var(--color-primary);
+  min-height: 100vh;
+  /* height: 640px; */
+  position: relative;
+}
+
+.Board {
+  margin: 20px;
+}
