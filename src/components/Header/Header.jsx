@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-
+import Logo from '../src/assets/ChessStudio_logo.png'
 const Header = ({onToggleSidebar}) => {
     return (
         <div className='Header'>
@@ -14,7 +14,7 @@ const Header = ({onToggleSidebar}) => {
                 <img 
                     className="Logo"
                     alt='logo'
-                    src='../src/assets/ChessStudio_logo.png'
+                    src={Logo}
                 />
             </div>
             
