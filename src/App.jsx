@@ -1,24 +1,43 @@
 import './App.css'
 import Board from './components/Board/Board'
-import Header from './components/Header/Header'
-import Sidebar from './components/Sidebar/Sidebar'
+// import Header from './components/Board/Square/Header/Header'
+// import Sidebar from './components/Layout/Sidebar/Sidebar'
 
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
-  const [SidebarOpened, setSidebarOpened] = useState(false)
+import axios from "axios"
+axios.defaults.withCredentials = true;
 
-  const toggleSidebar = () => {
-    setSidebarOpened(!SidebarOpened)
-    console.log("S",SidebarOpened);
-  }
+import { SERVER_URL } from './config/config'
+
+import Layout from './components/Layout/Layout'
+function App() {
+  console.log("AppJS");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      if (!isLoggedIn){
+        console.log("AXIOS");
+        axios.get(`${SERVER_URL}users/me`)
+        .then((response)=> {
+          setUserInfo(response.data);
+          setIsLoggedIn(true);
+        })
+        .catch ((error) => {
+          setIsLoggedIn(false);
+        })
+      }
+    }
+    checkSession();
+  }, [])
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Header onToggleSidebar={toggleSidebar}></Header>
-        <Sidebar isOpen={SidebarOpened} toggleSidebar={toggleSidebar}/>
+        <Layout/>
         <Routes>
           <Route path="/" element={<Board/>}/>
           <Route path="/about" element={<h1>About US</h1>}/>

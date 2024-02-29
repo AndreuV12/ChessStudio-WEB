@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Sidebar.css';
 
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-const Sidebar = ({isOpen=true, toggleSidebar}) => {
+const Sidebar = ({sidebarOpened, toggleSidebar}) => {
     const location = useLocation();
 
     useEffect(() => {
-        toggleSidebar()
+        if (sidebarOpened) toggleSidebar()
     }, [location.pathname])
 
     return (
-        <div className={`Sidebar ${isOpen ? 'open' : 'close'}`}>
+        <div className={`Sidebar ${sidebarOpened ? 'open' : 'close'}`}>
             <div>
                 <nav className="SidebarMenu">
                     <li> 
@@ -26,7 +26,6 @@ const Sidebar = ({isOpen=true, toggleSidebar}) => {
             </div>
             <div onClick={toggleSidebar}>
             </div>
-          
         </div>
     )
 };

@@ -28,10 +28,6 @@
     width: 100%;
 }
 
-.SidebarMenu>li:hover{
-    background-color: rgb(193, 193, 255);
-}
-
 .Link{
     display: block;
     color: black;
@@ -43,6 +39,7 @@
 }
 
 .Link:hover{
-    background-color: rgb(193, 193, 255);
+    background-color: rgba(193, 193, 255, 0.7);
+    /* border: 2px solid red; */
 }
 

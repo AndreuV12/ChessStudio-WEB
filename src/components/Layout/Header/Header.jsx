@@ -1,7 +1,10 @@
 import React from 'react';
 import './Header.css';
-import Logo from "../../assets/Logo.png"
+import Logo from "../../../assets/Logo.png"
+
+import { SERVER_URL } from '../../../config/config';
 const Header = ({onToggleSidebar}) => {
+    console.log('Renderizando Header');
     return (
         <div className='Header'>
             <div>
@@ -19,12 +22,12 @@ const Header = ({onToggleSidebar}) => {
             </div>
             
             <div className="Buttons">
-                <button className="textButton">
+                <a href={`${SERVER_URL}oauth/google`} className="textButton">
                     LogIn
-                </button>
-                <button className="textButton">
+                </a>
+                {/* <button className="textButton">
                     SignUp
-                </button>
+                </button> */}
             </div>
         </div>
     );
