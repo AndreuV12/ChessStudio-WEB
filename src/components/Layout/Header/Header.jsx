@@ -20,7 +20,7 @@ const Header = ({userInfo, onToggleSidebar, logout}) => {
                 />
             </div>
             
-            <div className="Buttons">
+            {/* <div className="Buttons">
                 { userInfo ? (
                     <> 
                         <span>{`Hi ${userInfo.username}!`}</span>
@@ -33,7 +33,7 @@ const Header = ({userInfo, onToggleSidebar, logout}) => {
                         LogIn
                     </a>
                 )}
-                </div>
+                </div> */}
         </div>
     );
 };

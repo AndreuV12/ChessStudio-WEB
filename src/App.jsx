@@ -46,14 +46,27 @@ function App() {
       <BrowserRouter>
         <Layout userInfo={userInfo} logout={logout}/>
         <Routes>
-          <Route path="/" element={<Board/>}/>
-          <Route path="/openings" element={<OpeningList/>}/>
-          <Route path="/contact" element={<div>
-            <h1> Contact</h1>
+          {/* <Route path="/" element={<Board/>}/> */}
+          <Route path="/" element={<OpeningList/>}/>
+          <Route path="/contact" element={
+            <div>
+              <h1> Contact</h1>
               <h2>Page  under construction</h2>
-            </div>}
-          />
-          **<Route path="/openings/qween-gambit" element={<QweenGambit/>}/>**
+            </div>
+          }/>
+          <Route path="/openings/qween-gambit" element={<QweenGambit/>}/>
+          <Route path="/openings/italian-game" element={
+            <div>
+              <h1> Italian Game</h1>
+              <h2>Page under construction</h2>
+            </div>
+          }/>
+          <Route path="/openings/french-defense" element={
+            <div>
+              <h1> French Defense</h1>
+              <h2>Page under construction</h2>
+            </div>
+          }/>
         </Routes>
       </BrowserRouter>
       

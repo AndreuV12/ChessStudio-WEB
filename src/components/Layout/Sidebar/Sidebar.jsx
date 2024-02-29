@@ -15,7 +15,7 @@ const Sidebar = ({sidebarOpened, toggleSidebar}) => {
             <div>
                 <nav className="SidebarMenu">
                     <li>
-                        <Link className="Link" to="/openings">Openings</Link>
+                        <Link className="Link" to="/">Openings</Link>
                     </li>
                     <li> 
                         <Link className="Link" to="/contact">

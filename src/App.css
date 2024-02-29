@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+#root{
+  background-color: red;
+}
+
 h1{
   padding: 20px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
