@@ -1,6 +1,6 @@
 .Header {
     /* background-color: hsl(240, 98%, 16%); */
-    height: 40px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,9 +32,9 @@
 }
 
 .Logo{
-    height: 37.5px;
-    width: 100px;
+    height: 55px;
 }
+
 .Buttons{
     justify-self: right;
     height: 36px;
