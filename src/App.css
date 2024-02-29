@@ -4,9 +4,54 @@
   box-sizing: border-box;
 }
 
+h1{
+  padding: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h2{
+  padding:0 0 10px 20px;
+}
+
+.OpeningDetail{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  /* align-items: center; */
+}
+.OpeningDetail>p{
+  padding: 0 20px 20px 20px;
+  text-align: justify;
+}
+
+.OpeningDetail>p>span{
+  color: blue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.OpeningDetail>.Board{
+  align-self: center;
+}
+
+.OpeningDetail>.NavigationButtons{
+  align-self: center;
+}
+
+.OpeningDetail>.NavigationButtons>button{
+  background-color: rgb(227, 227, 226);
+  font-size: 20px;
+  padding: 0px 12px;
+  margin: 6px 10px;
+  border-radius: 10px;
+  color: blue;
+  border: 2px solid rgb(38, 38, 140);
+}
+
+
+
 /* \Variables globales */
 :root {
-  --color-primary: rgba(10, 0, 110, 0.85);
+  --color-primary: rgb(168, 255, 249);
   --color-secondary: white;
   --font-size-base: 16px;
 }
@@ -29,8 +74,4 @@
   min-height: 100vh;
   /* height: 640px; */
   position: relative;
-}
-
-.Board {
-  margin: 20px;
 }

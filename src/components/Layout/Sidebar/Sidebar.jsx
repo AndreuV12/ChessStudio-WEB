@@ -14,14 +14,15 @@ const Sidebar = ({sidebarOpened, toggleSidebar}) => {
         <div className={`Sidebar ${sidebarOpened ? 'open' : 'close'}`}>
             <div>
                 <nav className="SidebarMenu">
+                    <li>
+                        <Link className="Link" to="/openings">Openings</Link>
+                    </li>
                     <li> 
-                        <Link className="Link" to="/">
-                            Home
+                        <Link className="Link" to="/contact">
+                            Contact
                         </Link>
                     </li>
-                    <li>
-                        <Link className="Link" to="/about">About Us</Link>
-                    </li>
+  
                 </nav>
             </div>
             <div onClick={toggleSidebar}>

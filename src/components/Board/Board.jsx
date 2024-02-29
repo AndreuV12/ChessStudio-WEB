@@ -3,7 +3,7 @@ import { INITIAL_POS } from "../../utils/Constants"
 import Square from "./Square/Square"
 import "./Board.css"
 import BoardBackground from "../../assets/Board.png"
-export default function Board({pos = INITIAL_POS, selectedPiece, lastMove, rotated = false, coordinates=true, onSquareClick, onClick} ) {
+export default function Board({pos = [], selectedPiece, lastMove, rotated = false, coordinates=true, onSquareClick, onClick} ) {
     let cors = [
         "A8", "B8", "C8", "D8", "E8", "F8", "G8", "H8",
         "A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7",

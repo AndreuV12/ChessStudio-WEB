@@ -14,14 +14,15 @@
 .Sidebar > :first-child{
     height: 100%;
     width: 140px;
-    background-color: rgba(233, 232, 236, 0.89);
-    padding-top: 10px;
+    background-color: white;
+    border-right: 1px solid black;
 }
 
 .Sidebar > :nth-child(2){
     display: block;
     width: calc(100% - 140px);
     height: 100%;
+    background-color: rgba(255,255,255,0.4);
 }
 
 .SidebarMenu>li{
@@ -41,7 +42,7 @@
 }
 
 .Link:hover{
-    background-color: rgba(193, 193, 255, 0.7);
+    background-color: rgb(226, 226, 226);
     /* border: 2px solid red; */
 }
 

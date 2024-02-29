@@ -3,8 +3,7 @@ import './Header.css';
 import Logo from "../../../assets/Logo.png"
 
 import { SERVER_URL } from '../../../config/config';
-const Header = ({onToggleSidebar}) => {
-    console.log('Renderizando Header');
+const Header = ({userInfo, onToggleSidebar, logout}) => {
     return (
         <div className='Header'>
             <div>
@@ -22,13 +21,19 @@ const Header = ({onToggleSidebar}) => {
             </div>
             
             <div className="Buttons">
-                <a href={`${SERVER_URL}oauth/google`} className="textButton">
-                    LogIn
-                </a>
-                {/* <button className="textButton">
-                    SignUp
-                </button> */}
-            </div>
+                { userInfo ? (
+                    <> 
+                        <span>{`Hi ${userInfo.username}!`}</span>
+                        <button className="logout" onClick={logout}>
+                            LogOut
+                        </button>
+                    </>
+                ) : (
+                    <a href={`${SERVER_URL}oauth/google`} className="textButton">
+                        LogIn
+                    </a>
+                )}
+                </div>
         </div>
     );
 };

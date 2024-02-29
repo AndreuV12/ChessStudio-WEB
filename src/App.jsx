@@ -1,7 +1,8 @@
 import './App.css'
+
+import Layout from './components/Layout/Layout'
 import Board from './components/Board/Board'
-// import Header from './components/Board/Square/Header/Header'
-// import Sidebar from './components/Layout/Sidebar/Sidebar'
+import OpeningList from './components/OpeningList/OpeningList'
 
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -10,8 +11,8 @@ import axios from "axios"
 axios.defaults.withCredentials = true;
 
 import { SERVER_URL } from './config/config'
+import QweenGambit from './components/OpeningDetail/QweenGambit/QweenGambit'
 
-import Layout from './components/Layout/Layout'
 function App() {
   console.log("AppJS");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,14 +35,25 @@ function App() {
     checkSession();
   }, [])
 
+  const logout = () => {
+    axios.get(`${SERVER_URL}oauth/google/logout`)
+    .then((response)=> {    
+      setUserInfo(null)
+    })
+  }
   return (
     <div className="App">
       <BrowserRouter>
-        <Layout/>
+        <Layout userInfo={userInfo} logout={logout}/>
         <Routes>
           <Route path="/" element={<Board/>}/>
-          <Route path="/about" element={<h1>About US</h1>}/>
-          **<Route path="/a/:id" element={<h1> A</h1>}/>**
+          <Route path="/openings" element={<OpeningList/>}/>
+          <Route path="/contact" element={<div>
+            <h1> Contact</h1>
+              <h2>Page  under construction</h2>
+            </div>}
+          />
+          **<Route path="/openings/qween-gambit" element={<QweenGambit/>}/>**
         </Routes>
       </BrowserRouter>
       
