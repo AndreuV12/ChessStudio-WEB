@@ -3,7 +3,7 @@ import { INITIAL_POS } from "../../utils/Constants"
 import Square from "./Square/Square"
 import "./Board.css"
 import BoardBackground from "../../assets/Board.png"
-export default function Board({pos = [], selectedPiece, lastMove, rotated = false, coordinates=true, onSquareClick, onClick} ) {
+export default function Board({pos = [], selectedPiece, lastMove, rotated = false, coordinates=true, onSquareClick} ) {
     let cors = [
         "A8", "B8", "C8", "D8", "E8", "F8", "G8", "H8",
         "A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7",
@@ -20,7 +20,15 @@ export default function Board({pos = [], selectedPiece, lastMove, rotated = fals
             <div className="BoardPieces">
                 {
                     cors.map((coor, i)=> (
-                        <Square key={i} coor={coor} piece={pos[coor]}></Square>
+                        <Square
+                            selected={coor==selectedPiece}
+                            lastMoved={coor==lastMove?.from || coor == lastMove?.to}
+                            key={i} 
+                            coor={coor} 
+                            piece={pos[coor]}
+                            onClick={onSquareClick} 
+                        >
+                        </Square>
                     ))
                 }   
             </div>

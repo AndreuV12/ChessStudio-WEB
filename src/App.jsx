@@ -1,7 +1,6 @@
 import './App.css'
 
 import Layout from './components/Layout/Layout'
-import Board from './components/Board/Board'
 import OpeningList from './components/OpeningList/OpeningList'
 
 import { useState, useEffect } from 'react'
@@ -11,8 +10,8 @@ import axios from "axios"
 axios.defaults.withCredentials = true;
 
 import { SERVER_URL } from './config/config'
-import QweenGambit from './components/OpeningDetail/QweenGambit/QweenGambit'
 
+import OpEditor from './components/OpEditor/OpEditor'
 function App() {
   console.log("AppJS");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,17 +19,17 @@ function App() {
 
   useEffect(() => {
     const checkSession = async () => {
-      if (!isLoggedIn){
-        console.log("AXIOS");
-        axios.get(`${SERVER_URL}users/me`)
-        .then((response)=> {
-          setUserInfo(response.data);
-          setIsLoggedIn(true);
-        })
-        .catch ((error) => {
-          setIsLoggedIn(false);
-        })
-      }
+      // if (!isLoggedIn){
+      //   // console.log("AXIOS");
+      //   axios.get(`${SERVER_URL}users/me`)
+      //   .then((response)=> {
+      //     setUserInfo(response.data);
+      //     setIsLoggedIn(true);
+      //   })
+      //   .catch ((error) => {
+      //     setIsLoggedIn(false);
+      //   })
+      // }
     }
     checkSession();
   }, [])
@@ -54,19 +53,7 @@ function App() {
               <h2>Page  under construction</h2>
             </div>
           }/>
-          <Route path="/openings/qween-gambit" element={<QweenGambit/>}/>
-          <Route path="/openings/italian-game" element={
-            <div>
-              <h1> Italian Game</h1>
-              <h2>Page under construction</h2>
-            </div>
-          }/>
-          <Route path="/openings/french-defense" element={
-            <div>
-              <h1> French Defense</h1>
-              <h2>Page under construction</h2>
-            </div>
-          }/>
+          <Route path="/openings/qween-gambit" element={<OpEditor/>}/>
         </Routes>
       </BrowserRouter>
       

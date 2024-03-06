@@ -8,7 +8,6 @@ const Layout = ({userInfo, logout}) => {
 
     const toggleSidebar = () => {
         setSidebarOpened(!sidebarOpened)
-        console.log("TOGGLE SIDEBAR",sidebarOpened);
     }
 
     return (

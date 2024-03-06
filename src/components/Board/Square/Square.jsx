@@ -14,8 +14,10 @@ import blackKnight from "../../../assets/pieces/black-N.png";
 import whitePawn from "../../../assets/pieces/white-P.png";
 import blackPawn from "../../../assets/pieces/black-P.png";
 
-export default function Square({piece, coor, selected, lastMoved}) {
-
+export default function Square({piece, coor, selected, lastMoved, onClick}) {
+    const handleClick = () => {
+        onClick && onClick(coor)
+    }
     const pieceImages = {
         K: whiteKing,
         k: blackKing,
@@ -36,6 +38,7 @@ export default function Square({piece, coor, selected, lastMoved}) {
             className={`Square${selected ? ' Selected' : ''}${lastMoved ? ' LastMoved' : ''}`}
             draggable="false"
             coor={coor}
+            onClick={handleClick}
         />
     )
 
@@ -46,6 +49,7 @@ export default function Square({piece, coor, selected, lastMoved}) {
             src={pieceImages[piece] || null}
             draggable="false"
             coor={coor}
+            onClick={handleClick}
         />
     )
 }

@@ -3,15 +3,12 @@ import './OpeningItem.css';
 import Board from '../../Board/Board';
 import { Link } from 'react-router-dom';
 
-const OpeningItem = ({pos, name, link}) => {
+const OpeningItem = ({name, link, children}) => {
     return (
-        <div className="OpeningItem">
-            <Link to={link}>
-                <Board pos={pos}></Board>
-            </Link>
+        <Link className="OpeningItem" to={link}>
+            {children}
             <span>{name}</span>
-        </div>
-        
+        </Link>
     );
 };
 
