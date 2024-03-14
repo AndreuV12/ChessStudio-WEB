@@ -3,7 +3,7 @@ import './Layout.css';
 import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 
-const Layout = ({userInfo, logout}) => {
+const Layout = ({userInfo, login, logout}) => {
     const [sidebarOpened, setSidebarOpened] = useState(true)
 
     const toggleSidebar = () => {
@@ -12,7 +12,7 @@ const Layout = ({userInfo, logout}) => {
 
     return (
         <>
-            <Header userInfo={userInfo} onToggleSidebar={toggleSidebar} logout={logout}/>
+            <Header userInfo={userInfo} onToggleSidebar={toggleSidebar} login={login} logout={logout}/>
             <Sidebar sidebarOpened={sidebarOpened} toggleSidebar={toggleSidebar} />
         </>
     );

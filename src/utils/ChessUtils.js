@@ -1,24 +1,13 @@
 import { Game, move, status, moves, aiMove, getFen } from 'js-chess-engine'
 
-let getOpeningData = (opening, path) =>{
-    let data = opening.data
+let getOpeningData = (opening, path) =>{   
+    let data = opening?.data
+    if (!data) return {}
     for (let i = 0; i< path.length; i++){
         data = data[path[i]]
-    }
- 
-    let config = data.config
-    let last_move = data.move
-    let moves = Object.keys(data).filter((el)=>(el!="move")&&(el!="config"))
-    .map((move)=>{
-        let {from, to, evalIcon} = data[move].move
-        return {
-            name: move,
-            from, 
-            to,
-            evalIcon
-        }
-    })
-    return {config, moves, last_move }
+    } 
+    let { move, config, ...moves} = data
+    return {config, moves, lastMove: move }
 }
 
 let checkMove = ( checked_move, config) => {
@@ -130,4 +119,5 @@ let getNotation = (path) => {
     return notation
 }
 
+getOpeningData()
 export { getOpeningData, addMoveToOpening, checkMove, getMoveName, sortMoves, getNotation }

@@ -2,8 +2,7 @@ import React from 'react';
 import './Header.css';
 import Logo from "../../../assets/Logo.png"
 
-import { SERVER_URL } from '../../../config/config';
-const Header = ({userInfo, onToggleSidebar, logout}) => {
+const Header = ({userInfo, onToggleSidebar, login, logout}) => {
     return (
         <div className='Header'>
             <div>
@@ -20,7 +19,7 @@ const Header = ({userInfo, onToggleSidebar, logout}) => {
                 />
             </div>
             
-            {/* <div className="Buttons">
+            <div className="Buttons">
                 { userInfo ? (
                     <> 
                         <span>{`Hi ${userInfo.username}!`}</span>
@@ -29,11 +28,11 @@ const Header = ({userInfo, onToggleSidebar, logout}) => {
                         </button>
                     </>
                 ) : (
-                    <a href={`${SERVER_URL}oauth/google`} className="textButton">
+                    <button className="textButton" onClick={login}>
                         LogIn
-                    </a>
+                    </button>
                 )}
-                </div> */}
+                </div>
         </div>
     );
 };

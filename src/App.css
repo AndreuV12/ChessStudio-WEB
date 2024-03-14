@@ -74,7 +74,8 @@ h2{
 }
 
 .App {
-  background-color: var(--color-primary);
+  background-image: url('./assets/background.webp');
+  opacity: 1;
   min-height: 100vh;
   /* height: 640px; */
   position: relative;

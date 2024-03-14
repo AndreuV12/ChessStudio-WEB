@@ -1,0 +1,16 @@
+.Moves {
+    border: 2px solid black;
+    background-color: white;
+    margin: 10px;
+}
+
+.Moves>p{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.Moves>ol{
+    /* border: 1px solid red; */
+    margin: 10px 30px;
+}

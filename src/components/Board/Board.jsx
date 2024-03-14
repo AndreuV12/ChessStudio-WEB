@@ -1,5 +1,4 @@
 import React from "react"
-import { INITIAL_POS } from "../../utils/Constants"
 import Square from "./Square/Square"
 import "./Board.css"
 import BoardBackground from "../../assets/Board.png"
