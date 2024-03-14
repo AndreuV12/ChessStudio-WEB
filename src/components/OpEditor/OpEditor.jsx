@@ -67,7 +67,7 @@ const OpEditor = () => {
         const moveName = getMoveName(move, config) // TODO Funcion para sacar nombre
         if (moveName in moves){
             setSelectedSquare(null)
-            setPath([...path, JSON.stringify(move)])
+            setPath([...path, moveName])
             
         }
         else {            
@@ -99,7 +99,6 @@ const OpEditor = () => {
         }
     }
 
-    console.log(lastMove);
     return (
         <div className='OpEditor'>
             <h1> {opening.name}</h1>

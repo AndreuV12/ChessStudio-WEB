@@ -9,7 +9,8 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
 import { SERVER_URL } from './config/config'
 
 import Layout from './components/Layout/Layout'
-import OpeningList from './components/OpeningList/OpeningList'
+// import OpeningList from './components/OpeningList/OpeningList'
+import OpeningListPage from './pages/openingsListPage';
 import OpEditor from './components/OpEditor/OpEditor'
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
         <Layout userInfo={userInfo} login={login} logout={logout}/>
         <Routes>
           {/* <Route path="/" element={<Board/>}/> */}
-          <Route path="/" element={<OpeningList/>}/>
+          <Route path="/" element={<OpeningListPage/>}/>
           <Route path="/contact" element={
             <div>
               <h1> Contact</h1>

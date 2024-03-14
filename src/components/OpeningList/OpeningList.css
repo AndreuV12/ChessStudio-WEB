@@ -1,13 +1,33 @@
-.OpeningListPage>p{
-    padding: 4px 20px;
-}
 .OpeningList{
     display: flex;
-    overflow-x: scroll;
+    flex-direction: column;
 }
 
-.OpeningList>.OpeningItem{
-    /* min-width: 10px; */
-    padding: 20px;
-    /* border: 2px solid red; */
+.OpeningList>.Toolbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px 0 ;
+    border: 2px solid red;
+    align-items: center;
 }
+
+.OpeningList>.Toolbar>p{
+    border: 2px solid red;
+}
+
+.OpeningList>.Toolbar>button{
+    background-color: #575656; /* Color de fondo gris oscuro */
+    color: white; /* Color del texto y del icono */
+    border: none; /* Quitamos el borde */
+    padding: 15px; /* Espacio interno */
+    font-size: 24px; /* Tamaño de fuente del icono */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    border-radius: 50%; /* Bordes redondeados para hacer un botón circular */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Altura del botón */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+  .OpeningList>.Toolbar>button:hover {
+    background-color: #9c9c9c; /* Cambiar el color de fondo al pasar el cursor */
+  }

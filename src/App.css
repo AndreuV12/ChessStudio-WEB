@@ -5,9 +5,12 @@
 }
 
 h1{
-  padding: 20px;
+  padding: 12px 20px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 100;
 }
+
 h2{
   padding:0 0 10px 20px;
 }
@@ -73,9 +76,8 @@ h2{
 
 .App {
   position: relative;
-  height: 85vh;
-  overflow-y: hidden;
   color: white;
   background-color: var(--color-primary);
-  /* border: 2px solid green; */
+  border: 2px solid green;
+  min-height: 100vh;
 }
