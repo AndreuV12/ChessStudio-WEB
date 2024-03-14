@@ -5,8 +5,15 @@
     z-index:2;
     top: 0;;
     display: flex;
-    /* background-color: rgba(0, 0, 0, 0.4); */
+}
 
+.Sidebar.open{
+    transition: background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.4); /* Cambia el color de fondo a uno con opacidad cuando el Sidebar está abierto */
+    transform: translateX(0);
+}
+.Sidebar.close{
+    transform: translateX(-100%);
 }
 
 .SidebarMenu{
@@ -18,10 +25,6 @@
     z-index: 10;
 
 }
-.Sidebar.open{
-    transition: background-color 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.4); /* Cambia el color de fondo a uno con opacidad cuando el Sidebar está abierto */
-}
 .Sidebar.open>.SidebarMenu{
     transition: transform 0.3s ease; /* Agrega una transición suave para animar el despliegue de la barra lateral */
     transform: translateX(0);
@@ -29,8 +32,6 @@
 .Sidebar.close>.SidebarMenu{
     transform: translateX(-100%);
 }
-
-
 
 .SidebarMenu>li{
     list-style: none;
@@ -52,4 +53,3 @@
     background-color: var(--color-quaternary)
     /* border: 2px solid red; */
 }
-
