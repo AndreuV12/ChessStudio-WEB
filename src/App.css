@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-#root{
-  background-color: red;
-}
-
 h1{
   padding: 20px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -55,15 +51,17 @@ h2{
 
 /* \Variables globales */
 :root {
-  --color-primary: rgb(168, 255, 249);
-  --color-secondary: white;
+  --color-primary: rgb(39, 40, 46);
+  --color-secondary: rgb(2, 2, 48);
+  --color-terciary: rgb(85, 85, 85);
+  --color-quaternary: rgb(114, 114, 114);
   --font-size-base: 16px;
 }
 
 
 .textButton{
   border: 2px solid black;
-  background-color: rgb(195, 193, 193);
+  background-color: white;
   color: black;
   font-weight:600;
   cursor: pointer;
@@ -74,9 +72,10 @@ h2{
 }
 
 .App {
-  background-image: url('./assets/background.webp');
-  opacity: 1;
-  min-height: 100vh;
-  /* height: 640px; */
   position: relative;
+  height: 85vh;
+  overflow-y: hidden;
+  color: white;
+  background-color: var(--color-primary);
+  /* border: 2px solid green; */
 }

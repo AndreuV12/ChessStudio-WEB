@@ -11,22 +11,18 @@ const Sidebar = ({sidebarOpened, toggleSidebar}) => {
     }, [location.pathname])
 
     return (
-        <div className={`Sidebar ${sidebarOpened ? 'open' : 'close'}`}>
-            <div>
-                <nav className="SidebarMenu">
-                    <li>
-                        <Link className="Link" to="/">Openings</Link>
-                    </li>
-                    <li> 
-                        <Link className="Link" to="/contact">
-                            Contact
-                        </Link>
-                    </li>
-  
-                </nav>
-            </div>
-            <div onClick={toggleSidebar}>
-            </div>
+        <div onClick={toggleSidebar} className={`Sidebar ${sidebarOpened ? 'open' : 'close'}`}>
+            <nav className="SidebarMenu">
+                <li>
+                    <Link className="Link" to="/">Openings</Link>
+                </li>
+                <li> 
+                    <Link className="Link" to="/contact">
+                        Contact
+                    </Link>
+                </li>
+
+            </nav>
         </div>
     )
 };
