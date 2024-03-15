@@ -1,0 +1,14 @@
+.OpCreator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .TextField{
+        max-width: 400px;
+    }
+    .BoardWithTools{
+        width: 70vw;
+    }
+    .ShownPosPicker{
+        display: flex;
+    }
+}

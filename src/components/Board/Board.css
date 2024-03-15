@@ -1,6 +1,6 @@
 .Board {
     border: 10px solid rgb(5, 3, 22);
-    width: 300px;
+    /* width: 300px; */
     aspect-ratio: 1;
     position: relative;
 }

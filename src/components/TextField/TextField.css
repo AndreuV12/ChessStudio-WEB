@@ -1,0 +1,32 @@
+.TextField{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    /* border: 2px solid red; */
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    label{
+        display: block;
+        font-weight: bold;
+        padding: 6px 10px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    input{
+        font-size: var(--font-size-base);
+
+        display: block;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #555;
+        color: white; 
+        margin: 10px;
+        overflow: hidden;
+    } */
+    input:focus{
+        outline: none;
+        border-color: #4CAF50; 
+    }
+}

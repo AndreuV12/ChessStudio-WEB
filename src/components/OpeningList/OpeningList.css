@@ -7,12 +7,10 @@
     display: flex;
     justify-content: space-between;
     padding: 0px 20px 0 ;
-    border: 2px solid red;
     align-items: center;
 }
 
 .OpeningList>.Toolbar>p{
-    border: 2px solid red;
 }
 
 .OpeningList>.Toolbar>button{

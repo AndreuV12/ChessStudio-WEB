@@ -6,14 +6,16 @@ const Moves = ({moves, onMoveClick}) => {
         onMoveClick(move)
     }
     return (
-        <div className='Moves'>
-            <p> Moves </p>
-            <ol>
-                {moves && Object.keys(moves).map((move)=>(
-                    <li onClick={()=> handleMoveClick(move)}>{move}</li>
-                ))}
-            </ol>
-        </div>
+        <ol className='Moves'>
+            {moves && Object.keys(moves).map((move)=>(
+                <li onClick={()=> handleMoveClick(move)}>
+                    <span></span>
+                    <span>{move}</span>
+                    <div>Actions</div>
+                
+                </li>
+            ))}
+        </ol>
     );
 };
 

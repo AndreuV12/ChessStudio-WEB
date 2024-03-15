@@ -101,20 +101,19 @@ const OpEditor = () => {
 
     return (
         <div className='OpEditor'>
-            <h1> {opening.name}</h1>
-            <Board 
-                pos={config ? config.pieces : {}}
-                selectedPiece={selectedSquare}
-                lastMove={lastMove}
-                onSquareClick={handleSquareClick}
-            >
-
-            </Board>
-            <SettingsBar onPrevClick={handlePrevClick} onNextClick={handleNextClick}></SettingsBar>
-            {/* <h2>Path</h2>
-            <p>{JSON.stringify(path)}</p>
-            <h2>Moves</h2> */}
+            <h1>{opening.name}</h1>
+            <div className='BoardWithTools'>
+                <Board 
+                    pos={config ? config.pieces : {}}
+                    selectedPiece={selectedSquare}
+                    lastMove={lastMove}
+                    onSquareClick={handleSquareClick}
+                >
+                </Board>
+                <SettingsBar onPrevClick={handlePrevClick} onNextClick={handleNextClick}></SettingsBar>
+            </div>
             <Moves moves={moves} onMoveClick={handleMoveClick}></Moves>
+            <div className='Notation'><p> Notation: Path Path Path</p></div>
 
         </div>
     );

@@ -12,6 +12,7 @@ import Layout from './components/Layout/Layout'
 // import OpeningList from './components/OpeningList/OpeningList'
 import OpeningListPage from './pages/openingsListPage';
 import OpEditor from './components/OpEditor/OpEditor'
+import OpCreator from './components/OpCreator/OpCreator';
 
 function App() {
   console.log("AppJS");
@@ -65,6 +66,7 @@ function App() {
               <h2>Page  under construction</h2>
             </div>
           }/>
+          <Route path="/openings/new" element={<OpCreator/>}/>
           <Route path="/openings/:id" element={<OpEditor/>}/>
         </Routes>
       </BrowserRouter>

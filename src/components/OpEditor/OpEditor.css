@@ -1,10 +1,37 @@
 .OpEditor{
-    border: 2px solid red;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+    ". openingName settings"
+    " board board board"
+    "moves moves moves"
+    "notation notation notation";
+    padding: 10px;
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-rows: auto auto 1fr auto;
+    justify-items: center;
     align-items: center;
-}
 
-.OpEditor>.Board{
-    width: 100vw;
+    h1{
+        grid-area: openingName;
+    }
+    
+    .BoardWithTools{
+        grid-area: board;
+        width: 100%;
+        .SettingsBar{
+            height: 50px;
+        }
+    }
+
+    .Moves{
+        /* padding: 10px; */
+        grid-area: moves;
+        width: 100%;
+        margin: 10px;
+        height: calc( 100vh - 100vw - 200px );
+    }
+
+    .Notation {
+        grid-area: notation;
+    }
 }

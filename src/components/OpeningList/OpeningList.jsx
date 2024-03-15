@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './OpeningList.css';
 import OpeningItem from './OpeningItem/OpeningItem';
 import Board from '../Board/Board';
@@ -8,6 +9,7 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
 import { SERVER_URL } from '../../config/config'
 
 const OpeningList = () => {
+    const navigate = useNavigate()
     const [OpeningList, setOpeningList] = useState([])
     useEffect(() => {
         getOpenings();
@@ -28,18 +30,8 @@ const OpeningList = () => {
         <div className='OpeningList'>
             <div className='Toolbar'>
                 <p>Filter</p>
-                <button><i className="fas fa-plus"></i></button>
+                <button onClick={ ()=>{ navigate('/openings/new')}}><i className="fas fa-plus"></i></button>
             </div>
-            { OpeningList.map((opening)=>(
-                <OpeningItem key={opening._id} name={opening.name} link={`openings/${opening._id}`}>
-                    <Board pos={opening.shown_pos}></Board>
-                </OpeningItem>  
-            ))}
-            { OpeningList.map((opening)=>(
-                <OpeningItem key={opening._id} name={opening.name} link={`openings/${opening._id}`}>
-                    <Board pos={opening.shown_pos}></Board>
-                </OpeningItem>  
-            ))}
             { OpeningList.map((opening)=>(
                 <OpeningItem key={opening._id} name={opening.name} link={`openings/${opening._id}`}>
                     <Board pos={opening.shown_pos}></Board>
