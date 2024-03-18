@@ -1,19 +1,34 @@
 .OpeningItem{
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-areas: 
+        "board name"
+        "board options";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    gap: 10px;
+    /* align-items: center; */
     text-decoration: none;
     color: inherit;
+    
+    .LinkBoard{
+        margin: 10px;
+        grid-area: board;
+    }
+    span{
+        grid-area: name;
+        font-size: 20px;
+        font-weight: bold;
+        align-self: center;
+    }
+    button{
+        grid-area: options;
+        width: auto;
+        align-self: end;
+        justify-self: end;
+        margin: 10px;
+    }
 }
 
 .OpeningItem:hover{
     background-color: rgba(0, 0, 0, 0.274);
-}
-.OpeningItem>span{
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.OpeningItem>.Board{
-    width: 50%;
-    margin: 10px
 }

@@ -1,14 +1,45 @@
 .OpCreator{
+    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .TextField{
-        max-width: 400px;
+        width: 100%;
+        label{
+            width: 120px;
+        }
     }
-    .BoardWithTools{
-        width: 70vw;
-    }
+
     .ShownPosPicker{
         display: flex;
+        width: 100%;
+        align-items: center;
+        label{
+            width: 120px;
+            display: block;
+            font-weight: bold;
+            padding: 6px 10px;
+            white-space: nowrap;
+            overflow: hidden;   
+        }
+        .BoardWithTools{
+            margin: 10px;
+            width: calc(100% - 120px);
+        }
+    }
+    .CreateButton{
+        background-color: #4CAF50; /* Color verde (puedes ajustarlo según tus preferencias) */
+        color: white;
+        padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+        margin: 10px;
+        margin-top: 20px;
+        align-self: end;
+        /* Si quieres añadir más estilos como sombras o bordes, puedes hacerlo aquí */   
     }
 }

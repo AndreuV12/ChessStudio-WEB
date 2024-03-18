@@ -15,7 +15,6 @@
     }
     input{
         font-size: var(--font-size-base);
-
         display: block;
         padding: 6px;
         border: 1px solid #ccc;

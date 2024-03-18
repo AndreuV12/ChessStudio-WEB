@@ -3,12 +3,21 @@ import './OpeningItem.css';
 import Board from '../../Board/Board';
 import { Link } from 'react-router-dom';
 
-const OpeningItem = ({name, link, children}) => {
+const OpeningItem = ({name, link, children, onRemoveClick }) => {
+
+    const handleRemoveClick = (event) => {
+        console.log(event);
+        event.stopPropagation();
+        onRemoveClick()
+    }
     return (
-        <Link className="OpeningItem" to={link}>
-            {children}
+        <div className="OpeningItem">
+            <Link className="LinkBoard" to={link}>
+                {children}
+            </Link>
             <span>{name}</span>
-        </Link>
+            <button onClick={handleRemoveClick}><i className="fas fa-trash"></i></button>
+        </div>
     );
 };
 

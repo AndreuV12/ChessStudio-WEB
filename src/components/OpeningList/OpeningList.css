@@ -1,31 +1,30 @@
 .OpeningList{
     display: flex;
     flex-direction: column;
-}
 
-.OpeningList>.Toolbar{
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 20px 0 ;
-    align-items: center;
-}
+	.Toolbar{
+		display: flex;
+		justify-content: space-between;
+		padding: 0px 20px 0 ;
+		align-items: center;
 
-.OpeningList>.Toolbar>p{
-}
+		button{
+			background-color: #575656; /* Color de fondo gris oscuro */
+			color: white; /* Color del texto y del icono */
+			border: none; /* Quitamos el borde */
+			padding: 15px; /* Espacio interno */
+			font-size: 24px; /* Tamaño de fuente del icono */
+			cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+			border-radius: 50%; /* Bordes redondeados para hacer un botón circular */
+			width: 60px; /* Ancho del botón */
+			height: 60px; /* Altura del botón */
+			transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+			margin-bottom: 10px;
+		}
 
-.OpeningList>.Toolbar>button{
-    background-color: #575656; /* Color de fondo gris oscuro */
-    color: white; /* Color del texto y del icono */
-    border: none; /* Quitamos el borde */
-    padding: 15px; /* Espacio interno */
-    font-size: 24px; /* Tamaño de fuente del icono */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-    border-radius: 50%; /* Bordes redondeados para hacer un botón circular */
-    width: 60px; /* Ancho del botón */
-    height: 60px; /* Altura del botón */
-    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
-}
+		button:hover{
+			background-color: #9c9c9c; 
+		}
 
-  .OpeningList>.Toolbar>button:hover {
-    background-color: #9c9c9c; /* Cambiar el color de fondo al pasar el cursor */
-  }
+	}
+}

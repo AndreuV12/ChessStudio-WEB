@@ -26,6 +26,11 @@ const OpeningList = () => {
         })
     }
 
+    const handleRemove = async (event, openingId) => {
+        console.log("hanleRemove Padre");
+        console.log(event, openingId)
+    }
+
     return (
         <div className='OpeningList'>
             <div className='Toolbar'>
@@ -33,7 +38,7 @@ const OpeningList = () => {
                 <button onClick={ ()=>{ navigate('/openings/new')}}><i className="fas fa-plus"></i></button>
             </div>
             { OpeningList.map((opening)=>(
-                <OpeningItem key={opening._id} name={opening.name} link={`openings/${opening._id}`}>
+                <OpeningItem key={opening._id} name={opening.name} link={`openings/${opening._id}`} onRemoveClick={()=>{handleRemove(opening._id)}}>
                     <Board pos={opening.shown_pos}></Board>
                 </OpeningItem>  
             ))}

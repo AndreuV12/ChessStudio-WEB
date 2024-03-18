@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 import './OpCreator.css';
 import Board from '../Board/Board';
 import SettingsBar from '../OpEditor/SettingsBar/SettingsBar';
 import TextField from '../TextField/TextField';
+import InfoDialog from '../InfoDialog/InfoDialog';
 
+import { SERVER_URL } from '../../config/config';
 import { INITIAL_OP } from '../../utils/Constants';
 import { getOpeningData, getMoveName, addMoveToOpening } from '../../utils/ChessUtils';
 const OpCreator = () => {
@@ -13,7 +18,8 @@ const OpCreator = () => {
     const { config, moves, lastMove} = getOpeningData(opening, path) // Se recalculara cada vez que se renderize el componente
     
     const [openingName, setOpeningName] = useState("")
-
+    const [dialog, setDialog] = useState(false)
+    const navigate = useNavigate()
     const handleNameChange = (event) => {
         setOpeningName(event.target.value);
     };
@@ -65,6 +71,29 @@ const OpCreator = () => {
         }
     }
 
+    const createOpening = async () => {
+        console.log("createOpening", openingName, config.pieces)
+        setDialog(true)
+        setTimeout(()=>{
+            setDialog(false)
+        }, 3000)
+
+        // axios.post(`${SERVER_URL}openings/`, {
+        //     name: openingName,
+        //     shown_pos: config.pieces,
+        //     data: opening.data,
+        // })
+        // .then((response)=> {
+        //     console.log("Apertura creada con exito", response.data);
+        //     navigate(`/openings/${response.data._id}`)
+        //     // setOpening(response.data)
+        // })
+        // .catch((err)=>{
+        //     // console.log(err)
+        // })
+        
+    }
+
     return (
         <div className='OpCreator'>
             <TextField
@@ -74,7 +103,7 @@ const OpCreator = () => {
             >    
             </TextField>
             <div className='ShownPosPicker'>
-                <label>Shown Pos</label>
+                <label>{"Shown Pos"}</label>
                 <div className='BoardWithTools'>
                     <Board 
                         pos={config ? config.pieces : {}}
@@ -85,8 +114,14 @@ const OpCreator = () => {
                     </Board>
                     <SettingsBar onPrevClick={handlePrevClick} onNextClick={handleNextClick}></SettingsBar>
                 </div>
-
             </div>
+            <button 
+                className='CreateButton' 
+                onClick={createOpening}
+            >
+                Create
+            </button>
+            <InfoDialog dialog={dialog} msg="Apertura Creada Con exito"></InfoDialog>
 
         </div>
     );
