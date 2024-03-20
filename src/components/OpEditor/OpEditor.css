@@ -6,13 +6,27 @@
     "moves moves moves"
     "notation notation notation";
     padding: 10px;
-    grid-template-columns: 37px 1fr 40px;
+    grid-template-columns: auto 1fr 40px;
     grid-template-rows: auto auto 1fr auto;
     justify-items: center;
     align-items: center;
 
     h1{
         grid-area: openingName;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .Back{
+        grid-area: back;
+        font-size: 24px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
     }
     
     .BoardWithTools{

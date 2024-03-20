@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './OpEditor.css';
 import Board from '../Board/Board';
 import SettingsBar from './SettingsBar/SettingsBar';
@@ -17,7 +17,7 @@ const OpEditor = () => {
     const { config, moves, lastMove} = getOpeningData(opening, path) // Se recalculara cada vez que se renderize el componente
     // Lo demas va en funcion e opening y path
     const { id } = useParams()
-        
+    const navigate = useNavigate()
     useEffect(()=>{
         getOpening()
     },[])
@@ -101,6 +101,9 @@ const OpEditor = () => {
     return (
         <div className='OpEditor'>
             <h1>{opening.name}</h1>
+            <button onClick={()=>{navigate('/')}} className="Back">
+                <i className="fa-solid fa-left-long"></i>
+            </button>
             <div className='BoardWithTools'>
                 <Board 
                     pos={config ? config.pieces : {}}
