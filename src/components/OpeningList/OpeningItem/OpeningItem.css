@@ -3,32 +3,87 @@
     grid-template-areas: 
         "board name"
         "board options";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
-    gap: 10px;
-    /* align-items: center; */
+    grid-template-columns: 5fr 4fr;
+    grid-template-rows: 2fr 1fr;
     text-decoration: none;
     color: inherit;
-    
-    .LinkBoard{
-        margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    .Board{
         grid-area: board;
+        align-self: center;
+        margin: 10px 0 10px 10px;
     }
     span{
         grid-area: name;
-        font-size: 20px;
-        font-weight: bold;
         align-self: center;
+        justify-self: center;
+        text-align: center;
+        padding: 18px;
+        overflow: hidden;
+        overflow-wrap: break-word; /* Oculta el contenido que se desborda */
+        max-width: 100%;
     }
-    button{
+    .OptionsMenu{
         grid-area: options;
-        width: auto;
-        align-self: end;
-        justify-self: end;
-        margin: 10px;
+        justify-self: center;
+        align-self: start;
+        .menu-toggle-btn {
+            width: 40px;
+            height: 40px;
+            color: #fff; /* Color del texto */
+            background-color: transparent;
+            border: none;
+        }
+        .menu-items-container{
+            padding-block: 10px;
+            background-color: white;
+            white-space: nowrap;
+            button{
+                padding: 8px 18px;
+                width: 100%;
+                text-align: start;
+                border: none;
+                background-color: transparent;
+                color: black;
+                font-size: 16px;
+                i{
+                    margin-right: 5px;
+                }
+            }
+            button:hover{
+                background-color: rgb(230, 226, 226);
+            }
+            .ChangeName>i{
+                color: blue;
+            }
+            .Delete>i{
+                color: red;
+            }
+        }
     }
 }
 
 .OpeningItem:hover{
     background-color: rgba(0, 0, 0, 0.274);
+}
+
+.Dialog{
+    .dialog-header{
+
+    }
+
+    .dialog-body{
+        input{
+            background-color: whitesmoke;
+            color: black
+        }
+    }
+
+    .dialog-actions{
+        button{
+            padding: 6px 8px;
+            margin-inline: 4px;
+        }
+    }
 }

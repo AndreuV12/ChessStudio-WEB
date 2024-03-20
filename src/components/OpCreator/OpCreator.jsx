@@ -5,8 +5,8 @@ import axios from 'axios';
 import './OpCreator.css';
 import Board from '../Board/Board';
 import SettingsBar from '../OpEditor/SettingsBar/SettingsBar';
-import TextField from '../TextField/TextField';
-import InfoDialog from '../InfoDialog/InfoDialog';
+import TextField from '../Common/TextField/TextField';
+import InfoDialog from '../Common/Dialog/Dialog';
 
 import { SERVER_URL } from '../../config/config';
 import { INITIAL_OP } from '../../utils/Constants';
@@ -78,20 +78,18 @@ const OpCreator = () => {
             setDialog(false)
         }, 3000)
 
-        // axios.post(`${SERVER_URL}openings/`, {
-        //     name: openingName,
-        //     shown_pos: config.pieces,
-        //     data: opening.data,
-        // })
-        // .then((response)=> {
-        //     console.log("Apertura creada con exito", response.data);
-        //     navigate(`/openings/${response.data._id}`)
-        //     // setOpening(response.data)
-        // })
-        // .catch((err)=>{
-        //     // console.log(err)
-        // })
-        
+        axios.post(`${SERVER_URL}openings/`, {
+            name: openingName,
+            shown_pos: config.pieces,
+            data: opening.data,
+        })
+        .then((response)=> {
+            console.log("Apertura creada con exito", response.data);
+            navigate(`/openings/${response.data._id}`)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     return (

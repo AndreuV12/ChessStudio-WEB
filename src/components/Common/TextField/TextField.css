@@ -28,4 +28,9 @@
         outline: none;
         border-color: #4CAF50; 
     }
+    input[disabled] {
+        background-color: #ddd;
+        color: #999;
+        cursor: not-allowed;
+    }
 }

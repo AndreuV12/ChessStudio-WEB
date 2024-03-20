@@ -1,0 +1,13 @@
+.menu-container {
+    position: relative;
+    .menu-toggle-btn{
+        font-size: 20px;
+    }
+    .menu-items-container{
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        list-style: none;
+        z-index: 1000;
+    }
+}

@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './OpeningList.css';
 import OpeningItem from './OpeningItem/OpeningItem';
-import Board from '../Board/Board';
 
 import axios from "axios"
-axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
 import { SERVER_URL } from '../../config/config'
 
 const OpeningList = () => {
@@ -13,22 +11,18 @@ const OpeningList = () => {
     const [OpeningList, setOpeningList] = useState([])
     useEffect(() => {
         getOpenings();
-      }, [])
+    }, [])
 
     const getOpenings = async () => {
+        console.log("getOpenings");
         axios.get(`${SERVER_URL}openings`)
         .then((response)=> {
-         console.log(response);
-         setOpeningList(response.data)
+            console.log(response);
+            setOpeningList(response.data)
         })
         .catch((err)=>{
           console.log(err)
         })
-    }
-
-    const handleRemove = async (event, openingId) => {
-        console.log("hanleRemove Padre");
-        console.log(event, openingId)
     }
 
     return (
@@ -38,11 +32,14 @@ const OpeningList = () => {
                 <button onClick={ ()=>{ navigate('/openings/new')}}><i className="fas fa-plus"></i></button>
             </div>
             { OpeningList.map((opening)=>(
-                <OpeningItem key={opening._id} name={opening.name} link={`openings/${opening._id}`} onRemoveClick={()=>{handleRemove(opening._id)}}>
-                    <Board pos={opening.shown_pos}></Board>
+                <OpeningItem 
+                    opening={opening}
+                    onChange={getOpenings}
+                    key={opening._id} 
+                >
                 </OpeningItem>  
             ))}
-        </div>       
+        </div>    
     );
 };
 

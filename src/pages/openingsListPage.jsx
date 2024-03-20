@@ -7,7 +7,6 @@ const OpeningListPage = () => {
             <h1>Openings</h1>
             <OpeningList/>
         </div>
-        
     );
 };
 
