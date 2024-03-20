@@ -10,11 +10,16 @@ const OpeningItem = ({opening, onChange}) => {
     console.log(opening);
     const [dialog, setDialog] = useState(false)
     const deleteOpening = () => {
-
+        axios.delete(`${SERVER_URL}openings/${opening._id}`)
+        .then(()=> {
+            onChange()
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     const changeName = (name) => {
-        console.log("changeName");
         axios.put(`${SERVER_URL}openings/${opening._id}`, {
             name
         })

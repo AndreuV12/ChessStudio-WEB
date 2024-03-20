@@ -9,5 +9,24 @@
         right: 0px;
         list-style: none;
         z-index: 1000;
+        padding-block: 10px;
+        background-color: rgb(255, 255, 255);
+        white-space: nowrap;
+        button{
+            padding: 8px 18px;
+            width: 100%;
+            text-align: start;
+            border: none;
+            background-color: transparent;
+            color: black;
+            font-size: 16px;
+            
+            i{
+                margin-right: 5px;
+            }
+        }
+        button:hover{
+            background-color: rgb(230, 226, 226);
+        }
     }
 }

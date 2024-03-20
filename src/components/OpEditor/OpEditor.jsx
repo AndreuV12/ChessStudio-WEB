@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './OpEditor.css';
-import { Game, move, status, moves, aiMove, getFen } from 'js-chess-engine'
 import Board from '../Board/Board';
 import SettingsBar from './SettingsBar/SettingsBar';
 import Moves from './Moves/Moves';

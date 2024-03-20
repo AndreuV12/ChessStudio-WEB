@@ -17,20 +17,17 @@
         font-size: var(--font-size-base);
         display: block;
         padding: 6px;
-        border: 1px solid #ccc;
         border-radius: 4px;
-        background-color: #555;
-        color: white; 
         margin: 10px;
         overflow: hidden;
-    } */
-    input:focus{
-        outline: none;
-        border-color: #4CAF50; 
+        border: 2px solid black;
+
     }
-    input[disabled] {
-        background-color: #ddd;
-        color: #999;
-        cursor: not-allowed;
+    input:focus{
+        border-color: #333fe6;
+        outline: none;
+    }
+    input:disabled{
+        opacity: 0.5;
     }
 }

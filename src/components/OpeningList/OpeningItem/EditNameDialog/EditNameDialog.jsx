@@ -26,7 +26,6 @@ const EditNameDialog = ({dialog, previousName, onClose, onSubmitChange}) => {
                     value={previousName}
                     disabled
                 >
-                    
                 </TextField>
                 <TextField 
                     label="Nuevo Nombre"

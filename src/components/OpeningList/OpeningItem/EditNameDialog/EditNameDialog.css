@@ -1,12 +1,5 @@
 .Dialog{
     .TextField{
-        /* border: 2px solid red; */
-        input:disabled{
-            border: 1px solid rgba(0, 0, 0, 0.219);
-            color: rgba(0, 0, 0, 0.7);
-        }
-        input{
-            border: 1px solid rgba(0, 0, 0, 0.7);
-        }
+        grid-template-columns: 1fr 2fr;
     }
 }

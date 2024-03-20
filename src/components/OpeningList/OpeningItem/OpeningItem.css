@@ -36,24 +36,6 @@
             border: none;
         }
         .menu-items-container{
-            padding-block: 10px;
-            background-color: white;
-            white-space: nowrap;
-            button{
-                padding: 8px 18px;
-                width: 100%;
-                text-align: start;
-                border: none;
-                background-color: transparent;
-                color: black;
-                font-size: 16px;
-                i{
-                    margin-right: 5px;
-                }
-            }
-            button:hover{
-                background-color: rgb(230, 226, 226);
-            }
             .ChangeName>i{
                 color: blue;
             }
@@ -69,10 +51,6 @@
 }
 
 .Dialog{
-    .dialog-header{
-
-    }
-
     .dialog-body{
         input{
             background-color: whitesmoke;
