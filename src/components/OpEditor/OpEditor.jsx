@@ -34,9 +34,6 @@ const OpEditor = () => {
 
     const updateOpening = async (opening) => {
         axios.put(`${SERVER_URL}openings/${id}`, opening)
-        .then((response)=> {
-            console.log("Update OPENING", response.data);
-        })
         .catch((err)=>{
             console.log(err)
         })
@@ -60,7 +57,6 @@ const OpEditor = () => {
     };
     
     const handleMove = (move) => {
-        console.log("handleMove");
         // Mirar si el movimiento esta registrado en Opening
         const moveName = getMoveName(move, config) // TODO Funcion para sacar nombre
         if (moveName in moves){
@@ -78,7 +74,6 @@ const OpEditor = () => {
     };
 
     const handleMoveClick = (move) => {
-        console.log(move);
         setPath([...path, move])
     }
 

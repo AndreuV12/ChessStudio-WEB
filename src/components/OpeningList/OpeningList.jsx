@@ -8,7 +8,6 @@ import { SERVER_URL } from '../../config/config'
 import OpeningItem from './OpeningItem/OpeningItem';
 
 const OpeningList = () => {
-    console.log("renderList");
     const navigate = useNavigate()
     const [OpeningList, setOpeningList] = useState([])
     const { user } = useAllContexts()
@@ -23,7 +22,6 @@ const OpeningList = () => {
     }, [user])
 
     const getOpenings = async () => {
-        console.log("getOpenings");
         axios.get(`${SERVER_URL}openings`)
         .then((response)=> {
             setOpeningList(response.data)

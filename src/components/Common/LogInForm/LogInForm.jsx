@@ -2,51 +2,61 @@ import axios from "axios"
 import { SERVER_URL } from "../../../config/config";
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAllContexts } from "../../../hooks/Context";
 import TextField from '../TextField/TextField';
 import Btn from '../Btn/Btn';
 import './LogInForm.css';
 const LogInForm = () => {
     const navigate = useNavigate()
-    const userNameRef = useRef(null);
+    const {user, setUser} =  useAllContexts()
+    const emailRef = useRef(null);
     const passwordRef = useRef(null);
 
-    const [userError, setUserError] = useState(false)
+    const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
 
     const [submitLoading, setSubmitLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false) 
+    const [errorMsg, setErrorMsg] = useState(false)
     const required = (v) => (!!v)
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const userName = userNameRef.current.value 
+        const email = emailRef.current.value 
         const password = passwordRef.current.value
      
         // validacion del formulario
-        if (!required(userName)){
-            setUserError(true)
+        const validEmail = required(email)
+        const validPassword = required(password)
+        
+        if (!validEmail){
+            setEmailError(true)
         }
-        if (!required(password)){
+        if (!validPassword){
             setPasswordError(true)
         }
-        if (!userError && !passwordError){
-            handleLogin(userName, password)
+        if (validEmail && validPassword){
+            handleLogin(email, password)
         }
     };
 
-    const handleLogin = async (username, password) => {
+    const handleLogin = async (email, password) => {
         setSubmitLoading(true)
         await axios.post(`${SERVER_URL}login`, {
-            username, 
+            email, 
             password
         })
         .then((res)=>{
             localStorage.setItem('token',res.data.token)
             axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-            checkSession()
+            axios.get(`${SERVER_URL}users/me`)
+            .then((response)=> {
+                setUser(response.data)
+                navigate('/')
+            })
         })
         .catch((error)=>{
-            console.log("Credenciales Invàlidas");
+            setErrorMsg(error.response?.data?.error || 'Credenciales Invàlidas');
         })
         setSubmitLoading(false)
     }
@@ -58,11 +68,11 @@ const LogInForm = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <TextField
-                            ref={userNameRef}
-                            label='Username'
+                            ref={emailRef}
+                            label='Email'
                             rules={required}
-                            error={userError}
-                            setError={setUserError}
+                            error={emailError}
+                            setError={setEmailError}
                         />
                         <TextField
                             ref={passwordRef}
@@ -75,6 +85,7 @@ const LogInForm = () => {
                         />
                         
                     </div>
+                    {errorMsg && <span className="ErrorMsg">{errorMsg}</span>}
                     <Btn className="SubmitBtn" type="submit" loading={submitLoading}>Log In</Btn>
                 </form>
                 <Btn className="ForgotPwdBtn" onClick={()=>navigate('/password-recovery')}> Forgot password? </Btn>

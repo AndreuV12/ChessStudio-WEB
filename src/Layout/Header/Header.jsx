@@ -39,7 +39,7 @@ const Header = ({onToggleSidebar, login, logout}) => {
                             <Btn className="LogInBtn" onClick={()=> navigate('/login')}>
                                 Log In
                             </Btn>
-                            <Btn className="SignUpBtn" onClick={login}>
+                            <Btn className="SignUpBtn" onClick={()=> navigate('/signup')}>
                                 Sign Up
                             </Btn>
 

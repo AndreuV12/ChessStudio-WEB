@@ -13,7 +13,6 @@ const TextField = forwardRef(({ label="label", type="text", value = "", onChange
   };
 
   const validate = () => {
-    console.log("validating");
     // ejecutara rules con el input y si devuelve false marcara error en el input
     if (rules && !rules(input)) setError(true)
   }
