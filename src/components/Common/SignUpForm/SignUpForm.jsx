@@ -1,3 +1,4 @@
+import './SignUpForm.css';
 import axios from "axios"
 import { SERVER_URL } from "../../../config/config";
 import React, { useRef, useState } from 'react';
@@ -5,15 +6,18 @@ import { useNavigate } from 'react-router-dom';
 import { useAllContexts } from "../../../hooks/Context";
 import TextField from '../TextField/TextField';
 import Btn from '../Btn/Btn';
-import './LogInForm.css';
-const LogInForm = () => {
+
+const SignUpForm = () => {
     const navigate = useNavigate()
     const {user, setUser} =  useAllContexts()
     
+    const usernameRef = useRef(null)
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
+
     const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
+    const [usernameError, setUsernameError] = useState(false)
 
     const [submitLoading, setSubmitLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false) 
@@ -23,26 +27,33 @@ const LogInForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const username = usernameRef.current.value
         const email = emailRef.current.value 
         const password = passwordRef.current.value
+
         // validacion del formulario
+        const validUsername = required(username)
         const validEmail = required(email)
         const validPassword = required(password)
         
+        if (!validUsername){
+            setUsernameError(true)
+        }
         if (!validEmail){
             setEmailError(true)
         }
         if (!validPassword){
             setPasswordError(true)
         }
-        if (validEmail && validPassword){
-            handleLogin(email, password)
+        if (validUsername && validEmail && validPassword){
+            handleSignUp(username, email, password)
         }
     };
 
-    const handleLogin = async (email, password) => {
+    const handleSignUp = async (username, email, password) => {
         setSubmitLoading(true)
-        await axios.post(`${SERVER_URL}login`, {
+        await axios.post(`${SERVER_URL}signup`, {
+            username,
             email, 
             password
         })
@@ -62,11 +73,18 @@ const LogInForm = () => {
     }
 
     return (
-        <div className='LogInContainer'>
-            <div className='LogInForm'>
-                <h1>LOGIN</h1> 
+        <div className='SignUpContainer'>
+            <div className='SignUpForm'>
+                <h1>SIGN UP</h1> 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
+                        <TextField
+                            ref={usernameRef}
+                            label='Username'
+                            rules={required}
+                            error={usernameError}
+                            setError={setUsernameError}
+                        />
                         <TextField
                             ref={emailRef}
                             label='Email'
@@ -82,21 +100,19 @@ const LogInForm = () => {
                             error={passwordError}
                             setError={setPasswordError}
                             rigthIcon={<i onClick={()=>setShowPassword(!showPassword)} className={`fa-solid ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>}
-                        />
-                        
+                        />                        
                     </div>
                     {errorMsg && <span className="ErrorMsg">{errorMsg}</span>}
-                    <Btn className="SubmitBtn" type="submit" loading={submitLoading}>Log In</Btn>
+                    <Btn className="SubmitBtn" type="submit" loading={submitLoading}>Sign Up</Btn>
                 </form>
-                <Btn className="ForgotPwdBtn" onClick={()=>navigate('/password-recovery')}> Forgot password? </Btn>
 
-                <div className='CreateAccountContainer' onClick={()=>navigate('/signup')}>
-                    <span>Don't have an account?</span>
-                    <Btn className="SignUpBtn">Create</Btn>
+                <div className='HaveAccountContainer' onClick={()=>navigate('/signup')}>
+                    <span>Already have an acount?</span>
+                    <Btn className="LogInBtn">Log In</Btn>
                 </div>
             </div>
         </div>
     );
 };
 
-export default LogInForm;
+export default SignUpForm;

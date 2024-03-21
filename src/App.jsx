@@ -1,13 +1,15 @@
 import './App.css'
 import axios from "axios"
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-import { useState, useEffect } from 'react'
+
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useAllContexts } from './hooks/Context';
 import { SERVER_URL } from './config/config'
 
 import Layout from './Layout/Layout'
 import LogInForm from './components/Common/LogInForm/LogInForm';
+import SignUpForm from './components/Common/SignUpForm/SignUpForm';
 import OpeningListPage from './pages/openingsListPage';
 import OpeningEditoPage from './pages/openingEditorPage';
 import OpCreator from './components/OpCreator/OpCreator';
@@ -41,28 +43,17 @@ function App() {
     })
   }
 
-  const logout = () => {
-    localStorage.removeItem('token')
-    delete axios.defaults.headers.common['Authorization'];
-    setUser(null)
-  }
-
   return (
     <div className="App">
       <BrowserRouter>
-        <Layout userInfo={user} login={login} logout={logout}/>
+        <Layout userInfo={user} login={login}/>
         <Routes>
-          {/* <Route path="/" element={<Board/>}/> */}
-          <Route path="/login" element={<LogInForm></LogInForm>}></Route>
+          <Route path="/login" element={<LogInForm/>}/>
+          <Route path="/signup" element={<SignUpForm/>}/>
           <Route path="/" element={<OpeningListPage/>}/>
           <Route path="/openings/new" element={<OpCreator/>}/>
           <Route path="/openings/:id" element={<OpeningEditoPage/>}/>
-          <Route path="*" element= {
-            <div>
-              <h1>Page  under construction</h1>
-            </div>
-          }>
-          </Route>
+          <Route path="*" element= {<h1>Page  under construction</h1>}/>
         </Routes>
       </BrowserRouter>
     </div>

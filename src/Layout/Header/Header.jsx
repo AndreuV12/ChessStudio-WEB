@@ -1,13 +1,22 @@
 import './Header.css';
-import Logo from "../../assets/Logo.png"
+import axios from "axios"
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAllContexts } from '../../hooks/Context';
+import Logo from "../../assets/Logo.png"
+
 import Btn from '../../components/Common/Btn/Btn';
 
-const Header = ({onToggleSidebar, login, logout}) => {
+const Header = ({onToggleSidebar, login}) => {
     const navigate = useNavigate() 
-    const { user } = useAllContexts()
+    const { user, setUser } = useAllContexts()
+
+    const logout = () => {
+        localStorage.removeItem('token')
+        delete axios.defaults.headers.common['Authorization'];
+        setUser(null)
+      }
     return (
         <div className='Header'>
             <div>
