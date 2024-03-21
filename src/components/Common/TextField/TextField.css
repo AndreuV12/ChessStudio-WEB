@@ -1,8 +1,8 @@
 .TextField{
+    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    /* border: 2px solid red; */
     align-items: center;
     justify-content: center;
     align-content: center;
@@ -21,7 +21,18 @@
         margin: 10px;
         overflow: hidden;
         border: 2px solid black;
-
+    }
+    .inputWithIcon {
+        padding-right: 36px;
+    }
+    .rigthIcon{
+        color: black;
+        position: absolute;
+        right: 20px;
+        font-size: 14px;
+    }
+    .error{
+        border: 2px solid red;
     }
     input:focus{
         border-color: #333fe6;

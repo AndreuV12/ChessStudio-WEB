@@ -53,10 +53,13 @@
 
 /* \Variables globales */
 :root {
-  --color-primary: rgb(39, 40, 46);
-  --color-secondary: rgb(2, 2, 48);
+  --color-primary: rgb(48, 49, 56);
+  --color-secondary: rgb(15, 15, 99);
   --color-terciary: rgb(85, 85, 85);
   --color-quaternary: rgb(114, 114, 114);
+  --color-login: rgb(0, 125, 0);
+  --color-signup: blue;
+  --color-logout: rgb(175, 0, 0);
   --font-size-base: 16px;
 }
 

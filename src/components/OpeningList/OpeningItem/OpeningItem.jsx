@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import axios from "axios"
 import { SERVER_URL } from '../../../config/config';
 const OpeningItem = ({opening, onChange}) => {
-    console.log(opening);
     const [dialog, setDialog] = useState(false)
     const deleteOpening = () => {
         axios.delete(`${SERVER_URL}openings/${opening._id}`)

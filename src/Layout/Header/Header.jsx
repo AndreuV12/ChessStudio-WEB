@@ -1,17 +1,22 @@
-import React from 'react';
 import './Header.css';
 import Logo from "../../assets/Logo.png"
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAllContexts } from '../../hooks/Context';
+import Btn from '../../components/Common/Btn/Btn';
 
-const Header = ({userInfo, onToggleSidebar, login, logout}) => {
+const Header = ({onToggleSidebar, login, logout}) => {
+    const navigate = useNavigate() 
+    const { user } = useAllContexts()
     return (
         <div className='Header'>
             <div>
-                <button 
+                <Btn 
                     className="MenuButton"
                     onClick={onToggleSidebar}
                 >
                     <i className="fa-solid fa-bars"></i>
-                </button>
+                </Btn>
                 <img 
                     className="Logo"
                     alt='logo'
@@ -19,19 +24,28 @@ const Header = ({userInfo, onToggleSidebar, login, logout}) => {
                 />
             </div>
             
-            <div className="Buttons">
-                { userInfo ? (
-                    <> 
-                        <span>{`Hi ${userInfo.username}!`}</span>
-                        <button className="logout" onClick={logout}>
-                            LogOut
-                        </button>
-                    </>
-                ) : (
-                    <button className="textButton" onClick={login}>
-                        LogIn
-                    </button>
-                )}
+            <div className="ButtonsContainer">
+                { user ? 
+                    (
+                        <> 
+                            <span>{`Hi ${user.username}!`}</span>
+                            <Btn className="LogOutBtn" onClick={logout}>
+                                Log Out
+                            </Btn>
+                        </>
+                    ) : 
+                    (
+                        <>
+                            <Btn className="LogInBtn" onClick={()=> navigate('/login')}>
+                                Log In
+                            </Btn>
+                            <Btn className="SignUpBtn" onClick={login}>
+                                Sign Up
+                            </Btn>
+
+                        </>
+                    )
+                }
                 </div>
         </div>
     );

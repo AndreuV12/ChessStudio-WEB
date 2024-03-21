@@ -1,64 +1,35 @@
 .Header {
-    /* background-color: hsl(240, 98%, 16%); */
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--color-secondary);
-    border-bottom: 2px solid black;
+    
+    div{
+        display: flex;
+        align-items: center;
+        .MenuButton{
+            background-color: transparent;
+            font-size: 1.8em;
+        }
+        .Logo{
+            height: 55px;
+        }
+    }
+    .ButtonsContainer{
+        justify-self: right;
+        margin: 4px;
+        span{
+            margin-right: 20px;
+        }
+        .LogInBtn{
+            background-color: var(--color-login)
+        }
+        .SignUpBtn {
+            background-color: var(--color-signup)
+        }
+        .LogOutBtn{
+            background-color:var(--color-logout)
+        }
+    }
 }
-
-.Header>div{
-    display: flex;
-    align-items: center;
-}
-
-.MenuButton{
-    margin: 6px;
-    padding: 3px 6px;
-    border-radius: 25%;
-    color: black;
-    background-color: white;
-    height: 100%;
-    border: none;
-    cursor: pointer;
-}
-.MenuButton:hover{
-    background-color:rgb(228, 227, 227);
-    ;
-}
-.MenuButton>i{
-    font-size: 1.8em;
-}
-
-.Logo{
-    height: 55px;
-}
-
-.Buttons{
-    justify-self: right;
-    height: 36px;
-    margin: 4px;  
-}
-
-.Buttons>a{
-    text-align: center;
-    padding: 3px 5px;
-    margin: 2px; 
-
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 12px;
-}
-
-.logout {
-    background-color: rgb(255, 145, 145);
-    border: 2px solid rgb(45, 0, 0);
-    border-radius: 6px;
-    margin: 12px;
-    padding: 4px;
-    font-size: 10px;
-    font-weight: bold;
-    cursor: pointer;
-}
-

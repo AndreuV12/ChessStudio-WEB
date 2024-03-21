@@ -1,0 +1,52 @@
+.LogInContainer{
+    position: absolute;
+    /* border: 2px solid red; */
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LogInForm{
+    box-shadow: 0 0 15px black;
+    border-radius: 30px;
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: 20px;
+    margin: 20px;
+    h1{
+        margin-block: 20px
+    }
+    form{
+        /* margin: 20px; */
+        display: flex;
+        flex-direction: column;
+        .SubmitBtn{
+            width: calc(100% - 20px);
+            margin: 30px 10px 10px 10px;
+            background-color: var(--color-login)
+        }
+    }
+    .ForgotPwdBtn{
+        background-color: transparent;
+        color: inherit;
+        width: 50%;
+    }
+
+    .CreateAccountContainer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* border: 2px solid white; */
+        margin: 10px;
+        padding: 10px 20px;
+        width: 100%;
+        .SignUpBtn{
+            background-color: var(--color-signup);
+        }
+    }
+}

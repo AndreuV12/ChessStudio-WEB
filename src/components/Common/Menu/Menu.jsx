@@ -7,7 +7,6 @@ const Menu = ({ children, label = "Menu", className }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-        console.log("click");
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsOpen(false);
       }

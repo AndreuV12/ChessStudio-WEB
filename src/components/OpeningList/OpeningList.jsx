@@ -1,23 +1,31 @@
+import './OpeningList.css';
+import axios from "axios"
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './OpeningList.css';
-import OpeningItem from './OpeningItem/OpeningItem';
-
-import axios from "axios"
+import { useAllContexts } from '../../hooks/Context';
 import { SERVER_URL } from '../../config/config'
 
+import OpeningItem from './OpeningItem/OpeningItem';
+
 const OpeningList = () => {
+    console.log("renderList");
     const navigate = useNavigate()
     const [OpeningList, setOpeningList] = useState([])
+    const { user } = useAllContexts()
+    
     useEffect(() => {
-        getOpenings();
-    }, [])
+        if (!user){ 
+            setOpeningList([])
+        } 
+        else {
+            getOpenings();
+        }
+    }, [user])
 
     const getOpenings = async () => {
         console.log("getOpenings");
         axios.get(`${SERVER_URL}openings`)
         .then((response)=> {
-            console.log(response);
             setOpeningList(response.data)
         })
         .catch((err)=>{

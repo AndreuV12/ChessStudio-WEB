@@ -25,7 +25,6 @@ const OpEditor = () => {
     const getOpening = async () => {
         axios.get(`${SERVER_URL}openings/${id}`)
         .then((response)=> {
-            console.log("FETCH OPENING", response.data);
             setOpening(response.data)
         })
         .catch((err)=>{

@@ -72,7 +72,6 @@ const OpCreator = () => {
     }
 
     const createOpening = async () => {
-        console.log("createOpening", openingName, config.pieces)
         setDialog(true)
         setTimeout(()=>{
             setDialog(false)
@@ -84,7 +83,6 @@ const OpCreator = () => {
             data: opening.data,
         })
         .then((response)=> {
-            console.log("Apertura creada con exito", response.data);
             navigate(`/openings/${response.data._id}`)
         })
         .catch((err)=>{

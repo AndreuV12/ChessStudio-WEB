@@ -1,13 +1,11 @@
 import { Game, move, status, moves, aiMove, getFen } from 'js-chess-engine'
 
 let getOpeningData = (opening, path) =>{   
-    console.log(opening, path);
     let data = opening?.data
     if (!data) return {}
     for (let i = 0; i< path.length; i++){
         data = data[path[i]]
     }
-    console.log("Data", data);
     let { move, config, ...moves} = data
     return {config, moves, lastMove: move }
 }

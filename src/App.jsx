@@ -1,24 +1,20 @@
 import './App.css'
-
-import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import axios from "axios"
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useAllContexts } from './hooks/Context';
 import { SERVER_URL } from './config/config'
 
 import Layout from './Layout/Layout'
-// import OpeningList from './components/OpeningList/OpeningList'
+import LogInForm from './components/Common/LogInForm/LogInForm';
 import OpeningListPage from './pages/openingsListPage';
 import OpeningEditoPage from './pages/openingEditorPage';
 import OpCreator from './components/OpCreator/OpCreator';
 
 function App() {
-  console.log("AppJS");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
-  
+
+  const { user, setUser } = useAllContexts()
   useEffect(() => {
     checkSession();
   }, [])
@@ -28,8 +24,7 @@ function App() {
     if (token){
       axios.get(`${SERVER_URL}users/me`)
       .then((response)=> {
-        setIsLoggedIn(true)
-        setUserInfo(response.data)
+        setUser(response.data)
       })
       .catch((err)=>{
         console.log("session No iniciada")
@@ -49,25 +44,25 @@ function App() {
   const logout = () => {
     localStorage.removeItem('token')
     delete axios.defaults.headers.common['Authorization'];
-    setUserInfo(null)
-    setIsLoggedIn(false)
+    setUser(null)
   }
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Layout userInfo={userInfo} login={login} logout={logout}/>
+        <Layout userInfo={user} login={login} logout={logout}/>
         <Routes>
           {/* <Route path="/" element={<Board/>}/> */}
+          <Route path="/login" element={<LogInForm></LogInForm>}></Route>
           <Route path="/" element={<OpeningListPage/>}/>
-          <Route path="/contact" element={
-            <div>
-              <h1> Contact</h1>
-              <h2>Page  under construction</h2>
-            </div>
-          }/>
           <Route path="/openings/new" element={<OpCreator/>}/>
           <Route path="/openings/:id" element={<OpeningEditoPage/>}/>
+          <Route path="*" element= {
+            <div>
+              <h1>Page  under construction</h1>
+            </div>
+          }>
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
