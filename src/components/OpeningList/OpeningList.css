@@ -1,13 +1,16 @@
 .OpeningList{
     display: flex;
     flex-direction: column;
-
 	.Toolbar{
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr auto;
 		justify-content: space-between;
-		padding: 0px 20px 0 ;
+		padding-inline: 10px;
+		padding-bottom: 20px;
 		align-items: center;
-
+		.TextField{
+			margin-right: 20px;
+		}
 		button{
 			background-color: #575656; /* Color de fondo gris oscuro */
 			color: white; /* Color del texto y del icono */
@@ -19,7 +22,9 @@
 			width: 60px; /* Ancho del botón */
 			height: 60px; /* Altura del botón */
 			transition: background-color 0.3s ease; /* Transición suave del color de fondo */
-			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
 		button:hover{
