@@ -13,6 +13,7 @@ import { getOpeningData, addMoveToOpening, getMoveName } from '../../utils/Chess
 const OpEditor = () => {
     const [opening, setOpening] = useState({});
     const [path, setPath] = useState([])
+    const [rotated, setRotated] = useState(false)
     const [selectedSquare, setSelectedSquare] = useState(null)
     const { config, moves, lastMove} = getOpeningData(opening, path) // Se recalculara cada vez que se renderize el componente
     // Lo demas va en funcion e opening y path
@@ -92,6 +93,14 @@ const OpEditor = () => {
         }
     }
 
+    const handleMoveDelete = (move) => {
+        console.log(opening, move);
+        const updatedOpening = { ...opening}
+        delete updatedOpening.data[move]
+        updateOpening(updatedOpening)
+        setOpening(updatedOpening)
+    }
+
     return (
         <div className='OpEditor'>
             <h1>{opening.name}</h1>
@@ -104,11 +113,16 @@ const OpEditor = () => {
                     selectedPiece={selectedSquare}
                     lastMove={lastMove}
                     onSquareClick={handleSquareClick}
+                    rotated={rotated}
                 >
                 </Board>
-                <SettingsBar onPrevClick={handlePrevClick} onNextClick={handleNextClick}></SettingsBar>
+                <SettingsBar 
+                    onPrevClick={handlePrevClick} 
+                    onNextClick={handleNextClick}
+                    onRotateClick={()=>{setRotated(!rotated)}}
+                ></SettingsBar>
             </div>
-            <Moves moves={moves} onMoveClick={handleMoveClick}></Moves>
+            <Moves moves={moves} onMoveClick={handleMoveClick} onMoveDelete={handleMoveDelete}></Moves>
             <div className='Notation'><p> Notation: Path Path Path</p></div>
 
         </div>

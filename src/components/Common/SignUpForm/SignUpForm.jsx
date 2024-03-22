@@ -106,9 +106,9 @@ const SignUpForm = () => {
                     <Btn className="SubmitBtn" type="submit" loading={submitLoading}>Sign Up</Btn>
                 </form>
 
-                <div className='HaveAccountContainer' onClick={()=>navigate('/signup')}>
+                <div className='HaveAccountContainer'>
                     <span>Already have an acount?</span>
-                    <Btn className="LogInBtn">Log In</Btn>
+                    <Btn onClick={()=>navigate('/login')} className="LogInBtn">Log In</Btn>
                 </div>
             </div>
         </div>

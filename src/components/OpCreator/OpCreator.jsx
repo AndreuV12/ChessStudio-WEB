@@ -7,6 +7,7 @@ import Board from '../Board/Board';
 import SettingsBar from '../OpEditor/SettingsBar/SettingsBar';
 import TextField from '../Common/TextField/TextField';
 import InfoDialog from '../Common/Dialog/Dialog';
+import Btn from '../Common/Btn/Btn';
 
 import { SERVER_URL } from '../../config/config';
 import { INITIAL_OP } from '../../utils/Constants';
@@ -111,12 +112,12 @@ const OpCreator = () => {
                     <SettingsBar onPrevClick={handlePrevClick} onNextClick={handleNextClick}></SettingsBar>
                 </div>
             </div>
-            <button 
+            <Btn 
                 className='CreateButton' 
                 onClick={createOpening}
             >
                 Create
-            </button>
+            </Btn>
             <InfoDialog dialog={dialog} msg="Apertura Creada Con exito"></InfoDialog>
 
         </div>

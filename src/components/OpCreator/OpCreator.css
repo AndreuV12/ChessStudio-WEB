@@ -32,17 +32,9 @@
         }
     }
     .CreateButton{
-        background-color: #4CAF50; /* Color verde (puedes ajustarlo según tus preferencias) */
-        color: white;
-        padding: 10px 20px; /* Ajusta el relleno según sea necesario */
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+        background-color: #4CAF50;
         margin: 10px;
         margin-top: 20px;
         align-self: end;
-        /* Si quieres añadir más estilos como sombras o bordes, puedes hacerlo aquí */   
     }
 }

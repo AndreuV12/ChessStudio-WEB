@@ -37,7 +37,7 @@ const Header = ({onToggleSidebar, login}) => {
                 { user ? 
                     (
                         <> 
-                            <span>{`Hi ${user.username}!`}</span>
+                            <span>{`${user.username}`}</span>
                             <Btn className="LogOutBtn" onClick={logout}>
                                 Log Out
                             </Btn>

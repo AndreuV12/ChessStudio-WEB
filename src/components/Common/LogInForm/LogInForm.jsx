@@ -90,9 +90,9 @@ const LogInForm = () => {
                 </form>
                 <Btn className="ForgotPwdBtn" onClick={()=>navigate('/password-recovery')}> Forgot password? </Btn>
 
-                <div className='CreateAccountContainer' onClick={()=>navigate('/signup')}>
+                <div className='CreateAccountContainer'>
                     <span>Don't have an account?</span>
-                    <Btn className="SignUpBtn">Create</Btn>
+                    <Btn onClick={()=>navigate('/signup')} className="SignUpBtn">Create</Btn>
                 </div>
             </div>
         </div>

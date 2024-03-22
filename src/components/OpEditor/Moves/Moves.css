@@ -1,14 +1,25 @@
 .Moves {
     overflow-y: scroll;
-}
+    li{
+        background-color: var(--color-quaternary);
+        margin: 2px;
+        
+        display: grid;
+        grid-template-columns: 6fr 1fr;
+        align-items: center;
+        justify-content: center;
 
-.Moves>li{
-    background-color: var(--color-quaternary);
-    height: 32px;
-    margin: 2px;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr 6fr 1fr 1fr;
-    align-items: center;
-    justify-content: center;
+        .MoveName{
+            padding: 8px 20px;
+        }
+
+        .MoveActions{
+            .DeleteBtn{
+                background-color: transparent;
+                color:rgb(200, 0, 0);
+                font-size: 18px;
+                text-shadow: 0 0 2px black;
+            }
+        }
+    }
 }
